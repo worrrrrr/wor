@@ -14,6 +14,7 @@
 	import ModelMenu from '#lib/components/ModelMenu.svelte';
 	import ThemeToggle from '#lib/components/ThemeToggle.svelte';
 	import { models } from '#lib/stores/models.svelte.ts';
+	import { layout } from '#lib/stores/layout.svelte.ts';
 	import { conversations } from '#lib/stores/conversations.svelte.ts';
 	import { ui } from '#lib/stores/ui.svelte.ts';
 	import { toasts } from '#lib/stores/toasts.svelte.ts';
@@ -62,7 +63,13 @@
 	let revision = $state(0);
 	let stickToBottom = $state(true);
 	let showJump = $state(false);
-	let inspectorOpen = $state(false);
+	let inspectorOpen = $state(
+		typeof window === 'undefined' ? false : layout.get('chatInspector', false)
+	);
+
+	$effect(() => {
+		layout.set('chatInspector', inspectorOpen);
+	});
 	let scroller = $state<HTMLDivElement | null>(null);
 	let abortController: AbortController | null = null;
 	let started = false;

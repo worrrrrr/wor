@@ -11,6 +11,7 @@
 	import type { SessionItem, SessionTab } from '#lib/code/types.ts';
 	import ThemeToggle from '#lib/components/ThemeToggle.svelte';
 	import { ui } from '#lib/stores/ui.svelte.ts';
+	import { layout } from '#lib/stores/layout.svelte.ts';
 	import { models } from '#lib/stores/models.svelte.ts';
 	import { toasts } from '#lib/stores/toasts.svelte.ts';
 	import { focusTrap } from '#lib/utils/focus-trap.ts';
@@ -40,10 +41,19 @@
 
 	let leftOpen = $state(typeof window === 'undefined' ? true : window.innerWidth >= 1024);
 	let leftMobile = $state(false);
-	let rightOpen = $state(typeof window === 'undefined' ? false : window.innerWidth >= 1536);
-	let bottomOpen = $state(true);
+	let rightOpen = $state(
+		typeof window === 'undefined' ? false : layout.get('codeRight', window.innerWidth >= 1536)
+	);
+	let bottomOpen = $state(typeof window === 'undefined' ? true : layout.get('codeBottom', true));
 	let rightWidth = $state(340);
 	let wide = $state(typeof window === 'undefined' ? false : window.innerWidth >= 1536);
+
+	$effect(() => {
+		layout.set('codeRight', rightOpen);
+	});
+	$effect(() => {
+		layout.set('codeBottom', bottomOpen);
+	});
 
 	let tabs = $state<SessionTab[]>([...demoTabs]);
 	let activeTabId = $state('auth');

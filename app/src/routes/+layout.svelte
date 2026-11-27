@@ -10,6 +10,8 @@
 	import PanelLeftOpen from '@lucide/svelte/icons/panel-left-open';
 	import { theme } from '#lib/stores/theme.svelte.ts';
 	import { ui } from '#lib/stores/ui.svelte.ts';
+	import { appearance } from '#lib/stores/appearance.svelte.ts';
+	import { layout } from '#lib/stores/layout.svelte.ts';
 	import { models } from '#lib/stores/models.svelte.ts';
 	import { conversations } from '#lib/stores/conversations.svelte.ts';
 	import { projects } from '#lib/stores/projects.svelte.ts';

@@ -90,6 +90,75 @@
 	--hl-meta: #8b8578;
 }
 
+/* Accents: same token names, swapped by data-accent on <html>. */
+[data-accent='violet'] {
+	--accent: #6b5bd2;
+	--accent-hover: #5a4bc0;
+	--accent-soft: #ece9fb;
+}
+
+[data-accent='teal'] {
+	--accent: #0f7f76;
+	--accent-hover: #0c6b63;
+	--accent-soft: #e0f2ef;
+}
+
+[data-accent='blue'] {
+	--accent: #2f6fd0;
+	--accent-hover: #275dae;
+	--accent-soft: #e5eefb;
+}
+
+[data-accent='green'] {
+	--accent: #3f7f5a;
+	--accent-hover: #356b4c;
+	--accent-soft: #e6f1ea;
+}
+
+[data-accent='rose'] {
+	--accent: #b94a6b;
+	--accent-hover: #a33f5d;
+	--accent-soft: #fbe7ec;
+}
+
+[data-theme='dark'][data-accent='violet'] {
+	--accent: #9a8df0;
+	--accent-hover: #ac9ff5;
+	--accent-soft: #262040;
+}
+
+[data-theme='dark'][data-accent='teal'] {
+	--accent: #4fc0b4;
+	--accent-hover: #63cfc3;
+	--accent-soft: #1b2f2d;
+}
+
+[data-theme='dark'][data-accent='blue'] {
+	--accent: #6fa8f0;
+	--accent-hover: #86b8f5;
+	--accent-soft: #1b2637;
+}
+
+[data-theme='dark'][data-accent='green'] {
+	--accent: #6fb98c;
+	--accent-hover: #84c79e;
+	--accent-soft: #1d2b23;
+}
+
+[data-theme='dark'][data-accent='rose'] {
+	--accent: #e07f9c;
+	--accent-hover: #ea93ac;
+	--accent-soft: #33202a;
+}
+
+[data-motion='reduced'] *,
+[data-motion='reduced'] *::before,
+[data-motion='reduced'] *::after {
+	animation-duration: 0.001ms !important;
+	animation-iteration-count: 1 !important;
+	transition-duration: 0.001ms !important;
+}
+
 @layer base {
 	html,
 	body {
