@@ -499,6 +499,7 @@
 				? 'bg-accent-soft text-accent'
 				: 'text-muted hover:bg-surface-2 hover:text-fg'}"
 			aria-label="Toggle inspector"
+			aria-pressed={inspectorOpen}
 			title="Session inspector"
 		>
 			{#if inspectorOpen}<PanelRightClose size={16} />{:else}<PanelRight size={16} />{/if}

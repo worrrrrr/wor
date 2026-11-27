@@ -6,6 +6,7 @@
 	import GitCompare from '@lucide/svelte/icons/git-compare';
 	import Loader from '@lucide/svelte/icons/loader';
 	import PanelBottom from '@lucide/svelte/icons/panel-bottom';
+	import PanelBottomClose from '@lucide/svelte/icons/panel-bottom-close';
 	import PanelLeft from '@lucide/svelte/icons/panel-left';
 	import PanelRight from '@lucide/svelte/icons/panel-right';
 	import PanelRightClose from '@lucide/svelte/icons/panel-right-close';
@@ -16,6 +17,7 @@
 		tabs,
 		activeId,
 		leftOpen,
+		bottomOpen,
 		rightOpen,
 		onselect,
 		onclose,
@@ -29,6 +31,7 @@
 		tabs: SessionTab[];
 		activeId: string;
 		leftOpen: boolean;
+		bottomOpen: boolean;
 		rightOpen: boolean;
 		onselect: (id: string) => void;
 		onclose: (id: string) => void;
@@ -122,10 +125,13 @@
 	<button
 		type="button"
 		onclick={ontogglebottom}
-		class="flex h-7 w-7 items-center justify-center rounded-md text-faint hover:bg-bg hover:text-fg"
+		class="flex h-7 w-7 items-center justify-center rounded-md {bottomOpen
+			? 'bg-accent-soft text-accent'
+			: 'text-faint hover:bg-bg hover:text-fg'}"
 		aria-label="Toggle bottom panel"
+		aria-pressed={bottomOpen}
 	>
-		<PanelBottom size={15} />
+		{#if bottomOpen}<PanelBottomClose size={15} />{:else}<PanelBottom size={15} />{/if}
 	</button>
 	<button
 		type="button"
@@ -134,6 +140,7 @@
 			? 'bg-accent-soft text-accent'
 			: 'text-faint hover:bg-bg hover:text-fg'}"
 		aria-label="Toggle inspector"
+		aria-pressed={rightOpen}
 	>
 		{#if rightOpen}<PanelRightClose size={15} />{:else}<PanelRight size={15} />{/if}
 	</button>

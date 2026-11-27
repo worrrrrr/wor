@@ -215,6 +215,7 @@
 			{tabs}
 			activeId={activeTabId}
 			{leftOpen}
+			{bottomOpen}
 			{rightOpen}
 			onselect={selectTab}
 			onclose={closeTab}
