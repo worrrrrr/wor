@@ -32,6 +32,6 @@
 	aria-hidden="true"
 >
 	<span
-		style={`position:absolute;${place};background:currentColor;opacity:${open ? 1 : 0.5};border-radius:${open ? Math.max(1, radius - stroke) : 1}px`}
+		style={`position:absolute;${place};background:currentColor;opacity:${open ? 1 : 0.5};border-radius:${open ? Math.max(1, radius - stroke) : 1}px;transition:${side === 'bottom' ? 'height' : 'width'} 200ms cubic-bezier(.22,1,.36,1),opacity 200ms cubic-bezier(.22,1,.36,1),border-radius 200ms`}
 	></span>
 </span>
