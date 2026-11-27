@@ -3,7 +3,6 @@
 	import type { SessionTab } from '#lib/code/types.ts';
 
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
-	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 	import CircleCheck from '@lucide/svelte/icons/circle-check';
 	import CircleX from '@lucide/svelte/icons/circle-x';
 	import Clock from '@lucide/svelte/icons/clock';
@@ -116,10 +115,9 @@
 							and run the focused tests.
 						</p>
 
-						<div class="overflow-hidden rounded-lg border border-line bg-surface">
-							<button
-								type="button"
-								class="flex w-full items-center gap-2 px-3 py-2 text-left hover:bg-surface-2"
+						<details open class="overflow-hidden rounded-lg border border-line bg-surface">
+							<summary
+								class="flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-left select-none hover:bg-surface-2 [&::-webkit-details-marker]:hidden"
 							>
 								<Eye size={13} class="text-muted" />
 								<span class="text-[11.5px] font-medium">Read</span>
@@ -129,8 +127,11 @@
 									src/lib/server/auth.ts
 								</code>
 								<span class="ml-auto text-[10px] text-faint">1–64 · 0.3s</span>
-								<ChevronDown size={13} class="text-faint" />
-							</button>
+								<ChevronDown
+									size={13}
+									class="-rotate-90 text-faint transition-transform in-open:rotate-0"
+								/>
+							</summary>
 							<div
 								class="border-t border-line bg-codebg px-3 py-2 font-mono text-[10.5px] leading-5 text-muted"
 							>
@@ -146,12 +147,11 @@
 									<span class="mr-3 text-faint select-none">14</span> return session.user;
 								</div>
 							</div>
-						</div>
+						</details>
 
-						<div class="overflow-hidden rounded-lg border border-line bg-surface">
-							<button
-								type="button"
-								class="flex w-full items-center gap-2 px-3 py-2 text-left hover:bg-surface-2"
+						<details class="overflow-hidden rounded-lg border border-line bg-surface">
+							<summary
+								class="flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-left select-none hover:bg-surface-2 [&::-webkit-details-marker]:hidden"
 							>
 								<Search size={13} class="text-muted" />
 								<span class="text-[11.5px] font-medium">Grep</span>
@@ -159,8 +159,11 @@
 									createSession
 								</code>
 								<span class="ml-auto text-[10px] text-faint">4 matches</span>
-								<ChevronDown size={13} class="text-faint" />
-							</button>
+								<ChevronDown
+									size={13}
+									class="-rotate-90 text-faint transition-transform in-open:rotate-0"
+								/>
+							</summary>
 							<div class="divide-y divide-line border-t border-line">
 								<div class="flex items-center gap-2 px-3 py-1.5 font-mono text-[10.5px]">
 									<span class="text-faint">auth.ts:13</span><span class="truncate text-muted">
@@ -178,12 +181,11 @@
 									</span>
 								</div>
 							</div>
-						</div>
+						</details>
 
-						<div class="overflow-hidden rounded-lg border border-line bg-surface">
-							<button
-								type="button"
-								class="flex w-full items-center gap-2 px-3 py-2 text-left hover:bg-surface-2"
+						<details class="group overflow-hidden rounded-lg border border-line bg-surface">
+							<summary
+								class="flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-left select-none hover:bg-surface-2 [&::-webkit-details-marker]:hidden"
 							>
 								<SquareTerminal size={13} class="text-muted" />
 								<span class="text-[11.5px] font-medium">Shell</span>
@@ -193,9 +195,20 @@
 								<span class="ml-auto flex items-center gap-1 text-[10px] text-ok">
 									<CircleCheck size={10} /> exit 0
 								</span>
-								<ChevronRight size={13} class="text-faint" />
-							</button>
-						</div>
+								<ChevronDown
+									size={13}
+									class="-rotate-90 text-faint transition-transform in-open:rotate-0"
+								/>
+							</summary>
+							<div
+								class="border-t border-line bg-codebg px-3 py-2 font-mono text-[10.5px] leading-5 text-muted"
+							>
+								<div>svelte-check found 0 errors and 0 warnings</div>
+								<div class="text-faint">
+									$ svelte-kit sync && svelte-check --tsconfig ./tsconfig.json
+								</div>
+							</div>
+						</details>
 
 						<div class="overflow-hidden rounded-lg border border-line bg-surface">
 							<div class="flex items-center gap-2 px-3 py-2">
