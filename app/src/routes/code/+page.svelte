@@ -15,10 +15,6 @@
 	import { toasts } from '#lib/stores/toasts.svelte.ts';
 	import { focusTrap } from '#lib/utils/focus-trap.ts';
 
-	import PanelLeft from '@lucide/svelte/icons/panel-left';
-	import PanelRight from '@lucide/svelte/icons/panel-right';
-	import PanelRightClose from '@lucide/svelte/icons/panel-right-close';
-	import PanelBottom from '@lucide/svelte/icons/panel-bottom';
 	import Plus from '@lucide/svelte/icons/plus';
 	import Search from '@lucide/svelte/icons/search';
 	import X from '@lucide/svelte/icons/x';

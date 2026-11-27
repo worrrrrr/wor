@@ -1,15 +1,11 @@
 <script lang="ts">
+	import PanelIcon from '#lib/components/PanelIcon.svelte';
 	import type { SessionTab } from '#lib/code/types.ts';
 
 	import Command from '@lucide/svelte/icons/command';
 	import FileCode from '@lucide/svelte/icons/file-code';
 	import GitCompare from '@lucide/svelte/icons/git-compare';
 	import Loader from '@lucide/svelte/icons/loader';
-	import PanelBottom from '@lucide/svelte/icons/panel-bottom';
-	import PanelBottomClose from '@lucide/svelte/icons/panel-bottom-close';
-	import PanelLeft from '@lucide/svelte/icons/panel-left';
-	import PanelRight from '@lucide/svelte/icons/panel-right';
-	import PanelRightClose from '@lucide/svelte/icons/panel-right-close';
 	import Plus from '@lucide/svelte/icons/plus';
 	import X from '@lucide/svelte/icons/x';
 
@@ -54,7 +50,7 @@
 			class="hidden h-7 w-7 items-center justify-center rounded-md text-faint hover:bg-bg hover:text-fg lg:flex"
 			aria-label="Open code sidebar"
 		>
-			<PanelLeft size={15} />
+			<PanelIcon side="left" size={15} />
 		</button>
 	{/if}
 	<button
@@ -63,7 +59,7 @@
 		class="flex h-7 w-7 items-center justify-center rounded-md text-faint hover:bg-bg hover:text-fg lg:hidden"
 		aria-label="Open code navigation"
 	>
-		<PanelLeft size={15} />
+		<PanelIcon side="left" size={15} />
 	</button>
 
 	<div class="flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto">
@@ -131,7 +127,7 @@
 		aria-label="Toggle bottom panel"
 		aria-pressed={bottomOpen}
 	>
-		{#if bottomOpen}<PanelBottomClose size={15} />{:else}<PanelBottom size={15} />{/if}
+		<PanelIcon side="bottom" open={bottomOpen} size={15} />
 	</button>
 	<button
 		type="button"
@@ -142,6 +138,6 @@
 		aria-label="Toggle inspector"
 		aria-pressed={rightOpen}
 	>
-		{#if rightOpen}<PanelRightClose size={15} />{:else}<PanelRight size={15} />{/if}
+		<PanelIcon side="right" open={rightOpen} size={15} />
 	</button>
 </header>

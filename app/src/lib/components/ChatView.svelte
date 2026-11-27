@@ -1,9 +1,6 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
 	import { goto } from '$app/navigation';
-	import PanelLeft from '@lucide/svelte/icons/panel-left';
-	import PanelRight from '@lucide/svelte/icons/panel-right';
-	import PanelRightClose from '@lucide/svelte/icons/panel-right-close';
 	import Copy from '@lucide/svelte/icons/copy';
 	import SquarePen from '@lucide/svelte/icons/square-pen';
 	import ArrowDown from '@lucide/svelte/icons/arrow-down';
@@ -13,6 +10,7 @@
 	import EmptyState from '#lib/components/EmptyState.svelte';
 	import ChatInspector from '#lib/components/ChatInspector.svelte';
 	import MessageItem from '#lib/components/MessageItem.svelte';
+	import PanelIcon from '#lib/components/PanelIcon.svelte';
 	import ModelMenu from '#lib/components/ModelMenu.svelte';
 	import ThemeToggle from '#lib/components/ThemeToggle.svelte';
 	import { models } from '#lib/stores/models.svelte.ts';
@@ -469,7 +467,7 @@
 			class="flex h-8 w-8 items-center justify-center rounded-lg text-muted hover:bg-surface-2 hover:text-fg md:hidden"
 			aria-label="Open sidebar"
 		>
-			<PanelLeft size={17} />
+			<PanelIcon side="left" size={17} />
 		</button>
 
 		<div class="min-w-0 flex-1">
@@ -502,7 +500,7 @@
 			aria-pressed={inspectorOpen}
 			title="Session inspector"
 		>
-			{#if inspectorOpen}<PanelRightClose size={16} />{:else}<PanelRight size={16} />{/if}
+			<PanelIcon side="right" open={inspectorOpen} size={16} />
 		</button>
 		<ModelMenu value={model} onchange={chooseModel} />
 		<ThemeToggle />
